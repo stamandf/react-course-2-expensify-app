@@ -6,7 +6,9 @@ exports[`should render an expense item correctly 1`] = `
     replace={false}
     to="/edit/undefined"
   />
-  : $
-   date:
+  : 
+  $0.00
+   - 
+  December 31st, 1969
 </li>
 `;
