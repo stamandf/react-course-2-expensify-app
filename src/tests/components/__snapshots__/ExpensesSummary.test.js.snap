@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should display expense summary correctly when no expenses 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
+exports[`should display multiple expenses summary correctly 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
+exports[`should display one expense summary correctly 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
