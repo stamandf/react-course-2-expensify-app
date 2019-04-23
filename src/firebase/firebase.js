@@ -1,9 +1,7 @@
 import * as firebase from 'firebase';
-import moment from 'moment';
-// import expenses from '../tests/fixtures/expenses';
 
 // Initialize Firebase
-var config = {
+const config = {
 apiKey: process.env.FIREBASE_API_KEY,
 authDomain: process.env.FIREBASE_AUTH_DOMAIN,
 databaseURL: process.env.FIREBASE_DATABASE_URL,
