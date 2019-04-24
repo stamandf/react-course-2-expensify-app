@@ -4,36 +4,37 @@ import { EditExpensePage } from '../../components/EditExpensePage';
 import expenses from '../fixtures/expenses';
 import moment from 'moment';
 
-let editExpense, startRemoveExpense, history, wrapper;
+let startEditExpense, startRemoveExpense, history, wrapper;
 
 beforeEach(() => {
-editExpense = jest.fn();
+startEditExpense = jest.fn();
 startRemoveExpense = jest.fn();
 history = { push: jest.fn() };
-wrapper = shallow(<EditExpensePage editExpense={editExpense} startRemoveExpense={startRemoveExpense} history={history} expense={expenses[1]} />);
+wrapper = shallow(
+    <EditExpensePage
+      startEditExpense={startEditExpense}
+      startRemoveExpense={startRemoveExpense}
+      history={history}
+      expense={expenses[2]}
+    />
+ );
 });
 
 test('should render EditExpensePage correctly', () => {
     expect(wrapper).toMatchSnapshot();
 });
 
-test('should handle EditExpense', () => {
-    const mExpense = {
-        id:'2',
-        description:'Rent',
-        note: 'This is a new note',
-        amount:109500,
-        createdAt: moment(0).subtract(4,'days').valueOf()
-    }
-    wrapper.find('ExpenseForm').prop('onSubmit')(mExpense);
-    expect(editExpense).toBeCalledWith(expenses[1].id, mExpense);
-    expect(history.push).toHaveBeenLastCalledWith('/');
-    
-}); //spies
 
-test('should handle startRemoveExpense', () => {
-    // wrapper.find('ExpenseForm').prop('onSubmit')(expenses[1]);
-    wrapper.find('button').simulate('click');
-    expect(startRemoveExpense).toBeCalledWith( {id: expenses[1].id});
+test('should handle startEditExpense', () => {
+    wrapper.find('ExpenseForm').prop('onSubmit')(expenses[2]);
     expect(history.push).toHaveBeenLastCalledWith('/');
-}); //spies
+    expect(startEditExpense).toHaveBeenLastCalledWith(expenses[2].id, expenses[2]);
+  });
+  
+  test('should handle startRemoveExpense', () => {
+    wrapper.find('button').simulate('click');
+    expect(history.push).toHaveBeenLastCalledWith('/');
+    expect(startRemoveExpense).toHaveBeenLastCalledWith({
+      id: expenses[2].id
+    });
+  });
