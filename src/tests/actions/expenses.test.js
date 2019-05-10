@@ -29,8 +29,8 @@ test('should setup remove expense action object', () => {
     expect(action).toEqual({
         type: 'DELETE_EXPENSE',
         id: '123abc'
-    })
-;});
+    });
+});
 
 test('should remove an expense from firebase', (done) => {
     const store = createMockStore({});

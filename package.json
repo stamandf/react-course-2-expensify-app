@@ -13,6 +13,7 @@
     "heroku-postbuild": "yarn run build:prod"
   },
   "dependencies": {
+    "@types/react-dom": "^16.8.4",
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-core": "6.26.3",
@@ -26,6 +27,7 @@
     "express": "^4.16.4",
     "extract-text-webpack-plugin": "^3.0.2",
     "firebase": "^5.9.4",
+    "history": "^4.9.0",
     "moment": "^2.24.0",
     "node-sass": "^4.11.0",
     "normalize.css": "^8.0.1",
