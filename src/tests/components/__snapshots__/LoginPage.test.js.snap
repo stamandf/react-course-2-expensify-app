@@ -5,9 +5,6 @@ exports[`should render login page correctly 1`] = `
   <h1>
     Expensify App
   </h1>
-  <h2>
-    Sign in
-  </h2>
   <button>
     Sign In
   </button>

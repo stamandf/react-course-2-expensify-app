@@ -10,8 +10,6 @@ export const Header = ({ startLogout }) => (
             <ol>
                 <li><NavLink to="/dashboard" activeClassName="is-active" exact={true}>Dashboard</NavLink></li>
                 <li><NavLink to="/create" activeClassName="is-active">Create Expense</NavLink></li>
-                <li><NavLink to="/edit" activeClassName="is-active">Edit expense</NavLink></li>
-                <li><NavLink to="/help" activeClassName="is-active">Help!</NavLink></li>
                 <button onClick={startLogout}>Logout</button>
             </ol>
         </div>

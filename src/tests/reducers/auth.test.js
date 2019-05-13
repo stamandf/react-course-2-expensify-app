@@ -8,10 +8,8 @@ test('should set uid for login', () => {
         uid: uid
     }
     const state = authReducer({}, action);
-    console.log(state);
     expect(state.uid).toEqual( action.uid )
     expect(state).toEqual( {uid} )
-    console.log(state.uid)
 });
 test('should clear uid for logout', () => {
     const uid = 1234;
