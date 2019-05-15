@@ -1,0 +1,26 @@
+.button  {
+    background: $blue;
+    border: none;
+    color: white;
+    display: inline-block;
+    font-size: $font-size-large;
+    font-weight: 300;
+    line-height: 1;
+    padding: $s-size;
+    text-decoration: none;
+    
+}
+//button link modifier
+.button--link {  
+    background: none;
+}
+
+//To remove blue border from css custom-styled buttons in Chrome
+.button:focus {  
+    outline: 0;  
+}
+
+//Grey button
+.button--secondary {
+    background: #888;
+}
