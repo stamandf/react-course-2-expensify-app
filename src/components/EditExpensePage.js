@@ -2,15 +2,37 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
 import { startEditExpense, startRemoveExpense } from '../actions/expenses';
+import RemoveModal from './RemoveModal';
 
 export class EditExpensePage extends React.Component {
+    state = {
+        selectedRemove: false
+    };
     onSubmit = (expense) => {
         this.props.startEditExpense(this.props.expense.id, expense);
         this.props.history.push('/');
     };
+    
     onClick = () => {
+        this.setState({
+            selectedRemove: true
+        });
+        // this.props.startRemoveExpense({ id: this.props.expense.id });
+        // this.props.history.push('/');
+    }
+
+    handleRemoveExpense = () => {
         this.props.startRemoveExpense({ id: this.props.expense.id });
         this.props.history.push('/');
+    }
+    onPrintState = () => {
+        console.log('this.selectedRemove3=',this.state.selectedRemove);
+    }
+
+    handleCloseModal = () => {
+        this.setState({
+            selectedRemove: false
+        });
     }
     render() {
         return (
@@ -26,33 +48,17 @@ export class EditExpensePage extends React.Component {
                         onSubmit = {this.onSubmit}
                     />
                     <button className="button button--secondary" onClick={this.onClick}>Remove Expense</button>
+                    <RemoveModal 
+                        selectedRemove={this.state.selectedRemove}
+                        handleCloseModal= {this.handleCloseModal}
+                        handleRemoveExpense = {this.handleRemoveExpense}
+                    />
                 </div>
             </div>
         );
     };
 }
 
-// const startEditExpensePage = (props) => {
-//     // console.log('Edit Expense props:',props.expense);
-//     return (
-//         <div>
-//         <h1>Edit Expense</h1>
-//              <ExpenseForm 
-//                 expense={props.expense}
-//                  onSubmit={(expense) => {
-//                     props.dispatch(startEditExpense(props.expense.id, expense));
-//                     props.history.push('/'); 
-//                     // console.log('Expense updated:', expense)
-//                  }}
-//              />
-//             <button onClick={() => {
-//             props.dispatch(removeExpense({ id: props.expense.id }))  // store.dispatch(removeExpense({id: expenseOne.expense.id}));
-//             props.history.push('/');
-//             // console.log('Expense deleted:', props.expense.id) 
-//         }} >Remove</button>
-//         </div>
-//     );
-// };
 
 const mapStateToProps = (state, props) => {
     return {
